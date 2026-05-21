@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;600&display=swap');
+
+:root {
+  --lol-gold: #c89b3c;
+  --lol-gold-light: #f0e6d3;
+  --lol-gold-dark: #785a28;
+  --lol-blue: #0bc4e3;
+  --lol-blue-dark: #0a6f80;
+  --lol-dark: #0a0e1a;
+  --lol-dark2: #091428;
+  --lol-dark3: #0d1b2e;
+  --lol-panel: #112240;
+  --lol-border: #1e3a5f;
+  --lol-text: #a8b8d0;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--lol-dark2);
+  background-image:
+    radial-gradient(ellipse at top, #0d2550 0%, transparent 60%),
+    radial-gradient(ellipse at bottom, #0a0e1a 0%, transparent 80%);
+  min-height: 100vh;
+  font-family: 'Rajdhani', sans-serif;
+  color: var(--lol-text);
+}
+
+.app-box {
+  background: rgba(9, 20, 40, 0.92);
+  border-radius: 4px;
+  border: 1px solid var(--lol-gold-dark);
+  box-shadow:
+    0 0 40px rgba(200, 155, 60, 0.15),
+    0 0 80px rgba(11, 196, 227, 0.05),
+    inset 0 1px 0 rgba(200, 155, 60, 0.2);
+  position: relative;
+  overflow: hidden;
+}
+
+.app-box::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--lol-gold), var(--lol-blue), var(--lol-gold), transparent);
+}
+
+.lol-icon {
+  font-size: 2.5rem;
+  filter: drop-shadow(0 0 12px var(--lol-gold));
+}
+
+.main-title {
+  font-family: 'Cinzel', serif;
+  font-weight: 900;
+  font-size: 2.5rem;
+  background: linear-gradient(180deg, #f0e6d3 0%, var(--lol-gold) 50%, var(--lol-gold-dark) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: none;
+  letter-spacing: 3px;
+  margin-bottom: 0.25rem;
+}
+
+.subtitle {
+  color: var(--lol-text);
+  font-size: 1rem;
+  letter-spacing: 1px;
+}
+
+.section-title {
+  font-family: 'Cinzel', serif;
+  color: var(--lol-gold);
+  font-size: 1.3rem;
+  letter-spacing: 2px;
+}
+
+/* Buttons */
+.btn-primary {
+  background: linear-gradient(180deg, #1a3a6e, #0d2550);
+  border: 1px solid var(--lol-gold);
+  color: var(--lol-gold-light);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: all 0.2s;
+  box-shadow: 0 0 12px rgba(200, 155, 60, 0.2);
+}
+
+.btn-primary:hover {
+  background: linear-gradient(180deg, #1e4a8a, #112f68);
+  border-color: var(--lol-gold-light);
+  color: #fff;
+  box-shadow: 0 0 20px rgba(200, 155, 60, 0.4);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  border: 1px solid var(--lol-border);
+  color: var(--lol-text);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.btn-outline-light:hover {
+  background: var(--lol-panel);
+  color: var(--lol-gold-light);
+  border-color: var(--lol-gold-dark);
+}
+
+.btn-secondary {
+  background: #1a2a3a;
+  border-color: var(--lol-border);
+  color: var(--lol-text);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.btn-outline-danger {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* Cards / Panels */
+.lol-card {
+  background: var(--lol-panel) !important;
+  border: 1px solid var(--lol-border) !important;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* Inputs */
+.lol-input {
+  background: rgba(5, 12, 25, 0.8) !important;
+  border: 1px solid var(--lol-border) !important;
+  color: var(--lol-gold-light) !important;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+}
+
+.lol-input:focus {
+  background: rgba(5, 12, 25, 0.95) !important;
+  border-color: var(--lol-gold-dark) !important;
+  box-shadow: 0 0 0 3px rgba(200, 155, 60, 0.15) !important;
+  color: #fff !important;
+  outline: none;
+}
+
+.lol-input::placeholder {
+  color: #3a5070 !important;
+}
+
+.lol-input option {
+  background: var(--lol-dark2);
+  color: var(--lol-gold-light);
+}
+
+.form-label {
+  color: var(--lol-gold);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  margin-bottom: 0.3rem;
+}
+
+.form-check-label {
+  color: var(--lol-text);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 500;
+}
+
+.form-check-input:checked {
+  background-color: var(--lol-gold-dark);
+  border-color: var(--lol-gold);
+}
+
+/* Badge */
+.lol-badge {
+  background: linear-gradient(135deg, var(--lol-gold-dark), var(--lol-gold)) !important;
+  color: var(--lol-dark2) !important;
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 700;
+  letter-spacing: 1px;
+  border-radius: 3px;
+  padding: 6px 14px;
+}
+
+/* Champion Cards */
+.champion-card {
+  border: 1px solid var(--lol-border) !important;
+  border-radius: 4px !important;
+  background: var(--lol-dark3) !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
+  transition: 0.25s;
+  height: 100%;
+  overflow: hidden;
+}
+
+.champion-card:hover {
+  transform: translateY(-5px);
+  border-color: var(--lol-gold-dark) !important;
+  box-shadow: 0 12px 32px rgba(200, 155, 60, 0.2);
+}
+
+.card-top-line {
+  height: 3px;
+}
+
+.line-assassin  { background: linear-gradient(90deg, #9d0000, #d63031); }
+.line-fighter   { background: linear-gradient(90deg, #b34700, #e17055); }
+.line-mage      { background: linear-gradient(90deg, #4a00b4, #a29bfe); }
+.line-marksman  { background: linear-gradient(90deg, #00639e, var(--lol-blue)); }
+.line-support   { background: linear-gradient(90deg, #006b3e, #00b894); }
+.line-tank      { background: linear-gradient(90deg, #4a4a6a, #8888aa); }
+
+.card-title {
+  font-family: 'Cinzel', serif;
+  color: var(--lol-gold-light) !important;
+  font-size: 1.15rem;
+  letter-spacing: 1px;
+}
+
+.info-line {
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+  color: var(--lol-text);
+}
+
+.info-line strong {
+  color: var(--lol-gold);
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.slika-champ {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  object-position: top;
+}
+
+.empty-box {
+  border: 2px dashed var(--lol-border);
+  border-radius: 8px;
+  background: var(--lol-panel);
+  color: var(--lol-text);
+}
+
+/* Badges on cards */
+.badge.text-bg-secondary {
+  background: #1a2a3a !important;
+  color: var(--lol-text) !important;
+  border: 1px solid var(--lol-border);
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+/* Class badges */
+.badge-assassin  { background: #5c0000 !important; color: #ff8080 !important; }
+.badge-fighter   { background: #5c2400 !important; color: #ffb380 !important; }
+.badge-mage      { background: #2a007a !important; color: #c8aaff !important; }
+.badge-marksman  { background: #003a5c !important; color: #80d8ff !important; }
+.badge-support   { background: #00402a !important; color: #80ffcc !important; }
+.badge-tank      { background: #2a2a44 !important; color: #aaaacc !important; }
+
+/* Stat bars */
+.stat-bar-wrap {
+  background: rgba(0,0,0,0.4);
+  border-radius: 2px;
+  height: 6px;
+  flex: 1;
+  margin-left: 8px;
+  border: 1px solid var(--lol-border);
+  overflow: hidden;
+}
+
+.stat-bar {
+  height: 100%;
+  border-radius: 2px;
+}
+
+.stat-bar-attack  { background: linear-gradient(90deg, #c0392b, #e74c3c); }
+.stat-bar-defense { background: linear-gradient(90deg, #1a6b9c, var(--lol-blue)); }
+
+/* Card buttons */
+.btn-uredi, .btn-obrisi {
+  font-family: 'Rajdhani', sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+}
+
+.btn-uredi {
+  border-color: var(--lol-gold-dark);
+  color: var(--lol-gold);
+}
+
+.btn-uredi:hover {
+  background: var(--lol-gold-dark);
+  color: var(--lol-dark2);
+  border-color: var(--lol-gold);
+}
+
+.btn-obrisi {
+  border-color: #6b1a1a;
+  color: #ff8080;
+}
+
+.btn-obrisi:hover {
+  background: #6b1a1a;
+  color: #fff;
+}
+
+/* Modal */
+.lol-modal {
+  background: var(--lol-dark3);
+  border: 1px solid var(--lol-gold-dark);
+}
+
+.lol-modal-header {
+  background: linear-gradient(180deg, #0d2040, #091428);
+  border-bottom: 1px solid var(--lol-gold-dark);
+  color: var(--lol-gold-light);
+}
+
+.lol-modal-header .modal-title {
+  font-family: 'Cinzel', serif;
+  color: var(--lol-gold);
+  letter-spacing: 2px;
+}
+
+.lol-modal-footer {
+  background: var(--lol-dark2);
+  border-top: 1px solid var(--lol-border);
+}
+
+.modal-body {
+  background: var(--lol-dark3);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--lol-dark2); }
+::-webkit-scrollbar-thumb { background: var(--lol-gold-dark); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--lol-gold); }

@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="sr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>LoL Champion Manager</title>
+
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Rajdhani:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+  <div class="container py-5">
+    <div class="app-box p-4 p-md-5">
+
+      <div class="d-flex justify-content-end mb-2">
+        <a href="logout.php" class="btn btn-outline-danger btn-sm">Odjavi se</a>
+      </div>
+
+      <div class="text-center mb-4">
+        <div class="lol-icon mb-2">⚔️</div>
+        <h1 class="main-title">Champion Manager</h1>
+        <p class="subtitle mb-0">
+          Dodavanje šampiona, statistike, filtriranje i sortiranje
+        </p>
+      </div>
+
+      <div class="d-flex flex-column flex-md-row gap-3 justify-content-center mb-4">
+        <button
+          id="btnDodajChampiona"
+          class="btn btn-primary btn-lg px-4"
+          type="button"
+        >
+          ➕ Dodaj šampiona
+        </button>
+
+        <button
+          id="btnPrikaziChampione"
+          class="btn btn-outline-light btn-lg px-4"
+          type="button"
+        >
+          🗡️ Prikaži šampione
+        </button>
+      </div>
+
+      <section id="formaSekcija">
+        <div class="card lol-card border-0 rounded-4">
+          <div class="card-body p-4">
+
+            <h3 class="mb-4 section-title">Unos šampiona</h3>
+
+            <form
+              id="championForm"
+              class="row g-3"
+              enctype="multipart/form-data"
+            >
+
+              <div class="col-12 col-md-6">
+                <label for="naziv" class="form-label">Naziv šampiona</label>
+                <input
+                  type="text"
+                  id="naziv"
+                  name="naziv"
+                  class="form-control lol-input"
+                  placeholder="Npr. Jinx, Ahri, Zed..."
+                />
+              </div>
+
+              <div class="col-12 col-md-3">
+                <label for="ip_cena" class="form-label">IP cena</label>
+                <input
+                  type="number"
+                  id="ip_cena"
+                  name="ip_cena"
+                  class="form-control lol-input"
+                  placeholder="Npr. 3150"
+                />
+              </div>
+
+              <div class="col-12 col-md-3">
+                <label class="form-label d-block">Tip šampiona</label>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tip"
+                    id="melee"
+                    value="Melee"
+                    checked
+                  />
+                  <label class="form-check-label" for="melee">Melee</label>
+                </div>
+                <div class="form-check form-check-inline">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="tip"
+                    id="ranged"
+                    value="Ranged"
+                  />
+                  <label class="form-check-label" for="ranged">Ranged</label>
+                </div>
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="napad" class="form-label">Napad (1–10)</label>
+                <input
+                  type="number"
+                  step="1"
+                  min="1"
+                  max="10"
+                  id="napad"
+                  name="napad"
+                  class="form-control lol-input"
+                  placeholder="Npr. 8"
+                />
+              </div>
+
+              <div class="col-12 col-md-6">
+                <label for="odbrana" class="form-label">Odbrana (1–10)</label>
+                <input
+                  type="number"
+                  step="1"
+                  min="1"
+                  max="10"
+                  id="odbrana"
+                  name="odbrana"
+                  class="form-control lol-input"
+                  placeholder="Npr. 4"
+                />
+              </div>
+
+              <div class="col-12 col-md-4">
+                <label for="klasa" class="form-label">Klasa</label>
+                <select id="klasa" name="klasa" class="form-select lol-input">
+                  <option value="Assassin">Assassin</option>
+                  <option value="Fighter">Fighter</option>
+                  <option value="Mage">Mage</option>
+                  <option value="Marksman">Marksman</option>
+                  <option value="Support">Support</option>
+                  <option value="Tank">Tank</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-8">
+                <label for="slika" class="form-label">Slika šampiona</label>
+                <input
+                  type="file"
+                  id="slika"
+                  name="slika"
+                  class="form-control lol-input"
+                  accept="image/*"
+                />
+              </div>
+
+              <div class="col-12">
+                <label for="opis" class="form-label">Opis šampiona</label>
+                <textarea
+                  id="opis"
+                  name="opis"
+                  class="form-control lol-input"
+                  rows="3"
+                  placeholder="Kratki lore ili napomena..."
+                ></textarea>
+              </div>
+
+              <div class="col-12 d-flex flex-column flex-sm-row gap-2">
+                <button type="submit" class="btn btn-primary px-4">
+                  Sačuvaj šampiona
+                </button>
+                <button type="reset" class="btn btn-secondary px-4">
+                  Reset
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+        </div>
+      </section>
+
+      <section id="championSekcija" class="d-none mt-4">
+
+        <div class="card lol-card border-0 rounded-4 mb-4">
+          <div class="card-body p-4">
+
+            <div class="row g-3 align-items-end">
+
+              <div class="col-12 col-md-4">
+                <label for="filterKlasa" class="form-label">
+                  Filtriraj po klasi
+                </label>
+                <select id="filterKlasa" class="form-select lol-input">
+                  <option value="Sve">Sve</option>
+                  <option value="Assassin">Assassin</option>
+                  <option value="Fighter">Fighter</option>
+                  <option value="Mage">Mage</option>
+                  <option value="Marksman">Marksman</option>
+                  <option value="Support">Support</option>
+                  <option value="Tank">Tank</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <label for="sortiranje" class="form-label">
+                  Sortiranje po napadu
+                </label>
+                <select id="sortiranje" class="form-select lol-input">
+                  <option value="default">Bez sortiranja</option>
+                  <option value="min-max">Od min ka max</option>
+                  <option value="max-min">Od max ka min</option>
+                </select>
+              </div>
+
+              <div class="col-12 col-md-4">
+                <button
+                  id="btnPrimeni"
+                  class="btn btn-primary w-100"
+                  type="button"
+                >
+                  Primeni
+                </button>
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between align-items-center flex-wrap gap-2 mb-3">
+          <h3 class="mb-0 section-title">Lista šampiona</h3>
+          <span id="brojChampiona" class="badge lol-badge fs-6">
+            0 šampiona
+          </span>
+        </div>
+
+        <div id="championsContainer" class="row g-4"></div>
+
+      </section>
+
+    </div>
+  </div>
+
+  <!-- Edit Modal -->
+  <div class="modal fade" id="modalUredi" tabindex="-1" aria-labelledby="modalUrediLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+      <div class="modal-content lol-modal">
+        <div class="modal-header lol-modal-header">
+          <h5 class="modal-title" id="modalUrediLabel">⚔️ Uredi šampiona</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Zatvori"></button>
+        </div>
+        <div class="modal-body">
+          <form id="editForm" class="row g-3" enctype="multipart/form-data">
+            <input type="hidden" id="editId" name="id" />
+
+            <div class="col-12 col-md-6">
+              <label for="editNaziv" class="form-label">Naziv šampiona</label>
+              <input type="text" id="editNaziv" name="naziv" class="form-control lol-input" />
+            </div>
+
+            <div class="col-12 col-md-3">
+              <label for="editIpCena" class="form-label">IP cena</label>
+              <input type="number" id="editIpCena" name="ip_cena" class="form-control lol-input" />
+            </div>
+
+            <div class="col-12 col-md-3">
+              <label class="form-label d-block">Tip šampiona</label>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="tip" id="editMelee" value="Melee" />
+                <label class="form-check-label" for="editMelee">Melee</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="tip" id="editRanged" value="Ranged" />
+                <label class="form-check-label" for="editRanged">Ranged</label>
+              </div>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="editNapad" class="form-label">Napad (1–10)</label>
+              <input type="number" step="1" min="1" max="10" id="editNapad" name="napad" class="form-control lol-input" />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="editOdbrana" class="form-label">Odbrana (1–10)</label>
+              <input type="number" step="1" min="1" max="10" id="editOdbrana" name="odbrana" class="form-control lol-input" />
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="editKlasa" class="form-label">Klasa</label>
+              <select id="editKlasa" name="klasa" class="form-select lol-input">
+                <option value="Assassin">Assassin</option>
+                <option value="Fighter">Fighter</option>
+                <option value="Mage">Mage</option>
+                <option value="Marksman">Marksman</option>
+                <option value="Support">Support</option>
+                <option value="Tank">Tank</option>
+              </select>
+            </div>
+
+            <div class="col-12 col-md-6">
+              <label for="editSlika" class="form-label">Nova slika (opcionalno)</label>
+              <input type="file" id="editSlika" name="slika" class="form-control lol-input" accept="image/*" />
+            </div>
+
+            <div class="col-12">
+              <label for="editOpis" class="form-label">Opis šampiona</label>
+              <textarea id="editOpis" name="opis" class="form-control lol-input" rows="3"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer lol-modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Otkaži</button>
+          <button type="button" class="btn btn-primary" id="btnSacuvajIzmene">Sačuvaj izmene</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
